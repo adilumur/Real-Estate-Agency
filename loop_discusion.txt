@@ -1,0 +1,24 @@
+Loops: 
+**Osoba - Zamestnanec - Firma - Smlouva_firma_vlastnik - Vlastnik - Osoba**, 
+**Osoba - Najemce - Smlouva_najemni - Vlastnik - Osoba **,
+**Osoba - Najemce - Smlouva_najemni - Byt - Vlastnik - Osoba**,
+**Osoba - Zamestnanec - Firma - Smlouva_firma_najemce - Najemce - Smlouva_najemni - Vlastnik - Osoba **,
+**Osoba - Zamestnanec - Firma - Smlouva_firma_najemce - Najemce - Smlouva_najemni - Byt - Vlastnik - Osoba**, 
+
+they cause the problem that the owner (Vlastnik), tenant (Najemce) and employee (Zamestnanec) can be one person, we don't want that, that's why we introduced IO2.
+									
+Loops: 
+**Firma - Smlouva_firma_najemce - Najemce - Smlouva_najemni  - Vlastnik - Smlouva_firma_vlastnik - Firma**,
+**Firma - Smlouva_firma_najemce - Najemce - Smlouva_najemni  - Byt - Vlastnik - Smlouva_firma_vlastnik - Firma**,  
+
+they do not cause any problem, they say that the Owner and the Tenant used the services of the Company. In order to use the services of the company, it is necessary to sign Contracts with the company, then of course the owner draws up a rental agreement, which the tenant must sign, and which contains information about the Apartment that the tenant will rent.
+
+Loop: 
+**Vlastnik - Byt - Smlouva_najemni - Vlastnik**, 
+
+also does not cause any problem, this loop says that the owner has drawn up a contract, which contains the apartment information.
+
+Loop:
+**Osoba - Najemce - Smlouva_firma_najemce - Firma - Smlouva_firma_vlastnik - Vlastnik - Osoba**, 
+
+does not cause a problem, this loop says that the tenant and the owner used the services of the company, but they did not agree and did not conclude a rental agreement.
